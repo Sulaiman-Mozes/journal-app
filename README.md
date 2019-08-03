@@ -47,6 +47,8 @@
 ## Built with
 - JavaScript
 - React/Redux
+- Node/Express
+- MongoDB
 
 ## Contribution guide
 ##### Contributing
