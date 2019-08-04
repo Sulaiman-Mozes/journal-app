@@ -61,10 +61,10 @@ class SignUp extends Component {
 
         <p>
           By clicking
-<em>Sign up</em>
+          <em>Sign up</em>
           {' '}
           you agree to our
-<a href="" target="_blank">terms of service</a>
+          <a href="" target="_blank">terms of service</a>
         </p>
 
       </form>

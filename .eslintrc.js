@@ -27,6 +27,19 @@ module.exports = {
     "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
     "no-shadow": "warn",
     "import/no-named-as-default": ['off'],
-    "react/no-array-index-key":['off']
+    "react/no-array-index-key": ['off'],
+    "jsx-a11y/label-has-associated-control": [2, {
+      "labelComponents": ["CustomInputLabel"],
+      "labelAttributes": ["label"],
+      "controlComponents": ["CustomInput"],
+      "depth": 3,
+    }],
+    "jsx-a11y/label-has-for": [2, {
+      "components": ["Label"],
+      "required": {
+        "some": ["nesting", "id"]
+      },
+      "allowChildren": false,
+    }]
   },
 };

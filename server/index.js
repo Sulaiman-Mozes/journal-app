@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+const routes = require('./routes/index');
 
 if (process.env.NODE_ENV !== 'production') {
   // eslint-disable-next-line global-require
@@ -20,8 +21,6 @@ mongoose
 
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-  res.send('Welcome to my journal');
-});
+app.use(routes);
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
