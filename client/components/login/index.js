@@ -25,7 +25,7 @@ class Login extends Component {
           </div>
           <div>
 
-            <a href="">Forgot password?</a>
+            <a href="/">Forgot password?</a>
           </div>
         </div>
 
@@ -34,25 +34,24 @@ class Login extends Component {
 
         <p>
 Not a member?
-<a href="">Register</a>
+          <a href="/">Register</a>
         </p>
 
 
         <p>or sign in with:</p>
 
-        <a type="button" className="light-blue-text mx-2">
+        <a href="/" type="button" className="light-blue-text mx-2">
           <i className="fab fa-facebook-f" />
         </a>
-        <a type="button" className="light-blue-text mx-2">
+        <a href="/" type="button" className="light-blue-text mx-2">
           <i className="fab fa-twitter" />
         </a>
-        <a type="button" className="light-blue-text mx-2">
+        <a href="/" type="button" className="light-blue-text mx-2">
           <i className="fab fa-linkedin-in" />
         </a>
-        <a type="button" className="light-blue-text mx-2">
+        <a href="/" type="button" className="light-blue-text mx-2">
           <i className="fab fa-github" />
         </a>
-        {/* </input> */}
       </form>
 
     );
