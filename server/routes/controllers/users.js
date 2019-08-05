@@ -1,23 +1,71 @@
+/* eslint-disable no-underscore-dangle */
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const User = require('../../models/User');
 
-
 module.exports = {
-  createUser: (req, res) => {
-    const { email, password, username } = req.body;
-    User.findOne({ email }, (err, user) => {
-      if (user) {
-        return res.status(400).json({ msg: 'Email Already In Use' });
-      }
-      const newUser = new User({ email, password, username });
+  addUser: (req, res) => {
+    const { username, email, password } = req.body;
 
-      return bcrypt.genSalt(10, (err, salt) => {
-        bcrypt.hash(newUser.password, salt, (err, hash) => {
-          if (err) throw err;
-          newUser.password = hash;
-          newUser.save()
-            .then(resp => res.status(201).json({ id: resp.id, username: resp.username, email: resp.email }))
-            .catch(err => console.log(err));
+    const newUser = new User({ username, email, password });
+
+    User.findOne({ email }).exec((error, user) => {
+      if (user) {
+        return res.status(400).send({
+          status: 'Failure',
+          message: 'Email Address Already In Use',
+        });
+      }
+
+      return bcrypt.hash(password, 10, (err, hash) => {
+        newUser.password = hash;
+        newUser.save((err) => {
+          if (err) {
+            return res.status(500).send({
+              status: 'Fail',
+              message: 'An error Occured while creating an Account , Try Again ',
+            });
+          }
+          return res.status(201).send({
+            status: 'success',
+            message: 'Account Succesfully Created',
+            data: {
+              _id: newUser._id,
+              username: newUser.username,
+              email: newUser.email,
+            },
+          });
+        });
+      });
+    });
+  },
+
+  login: (req, res) => {
+    const { username, password } = req.body;
+    User.findOne({ username }).exec((error, user) => {
+      if (error) {
+        return res.status(401).send({
+          message: 'Authentication Failed, Username or Password Incorrect',
+        });
+      }
+      return bcrypt.compare(password, user.password, (err, resp) => {
+        if (resp) {
+          const token = jwt.sign({
+            data: { _id: user._id, username: user.username, email: user.email },
+          },
+          process.env.SECRET,
+          { expiresIn: '1h' });
+          return res.status(200).send({
+            message: 'Successfully Logged In',
+            data: {
+              username: user.username,
+              email: user.email,
+              token,
+            },
+          });
+        }
+        return res.status(403).send({
+          message: 'Authentication Failed, Username or Password Incorrect',
         });
       });
     });
