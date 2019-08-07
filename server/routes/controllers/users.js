@@ -54,7 +54,7 @@ module.exports = {
             data: { _id: user._id, username: user.username, email: user.email },
           },
           process.env.SECRET,
-          { expiresIn: '1h' });
+          { expiresIn: '48h' });
           return res.status(200).send({
             message: 'Successfully Logged In',
             data: {
