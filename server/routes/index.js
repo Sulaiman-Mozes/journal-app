@@ -1,5 +1,7 @@
 const express = require('express');
-const UserContoller = require('./controllers/users');
+const authenticate = require('../middleware/authenticate');
+const UserController = require('./controllers/users');
+const JournalController = require('./controllers/journals');
 
 const router = express.Router();
 
@@ -7,7 +9,14 @@ router.get('/', (req, res) => {
   res.send('Welcome to my journal');
 });
 
-router.post('/api/users/register', UserContoller.addUser);
-router.post('/api/users/login', UserContoller.login);
+// User Endpoints
+router.post('/api/users/register', UserController.addUser);
+router.post('/api/users/login', UserController.login);
+
+// Journal Endpoints
+router.get('/api/journals', authenticate, JournalController.list);
+router.post('/api/journals', authenticate, JournalController.create);
+router.delete('/api/journals/:journal_id', authenticate, JournalController.delete);
+
 
 module.exports = router;
