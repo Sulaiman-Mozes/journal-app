@@ -6,7 +6,7 @@ import Header from '../header';
 import Footer from '../footer';
 import Journal from '../journals';
 import Login from '../login';
-import Signup from '../signup';
+import Signup from '../../containers/users/signup';
 import NotFound from '../notFound';
 
 const App = () => (

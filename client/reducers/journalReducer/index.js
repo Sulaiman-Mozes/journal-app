@@ -1,8 +1,9 @@
 import initialState from '../initialState';
 
-const journalReducer = (state = initialState, action) => {
+const journalReducer = (state = initialState.journals, action) => {
   switch (action.type) {
-    default: return { ...state };
+    default:
+      return state;
   }
 };
 

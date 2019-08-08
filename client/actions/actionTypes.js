@@ -1,0 +1,9 @@
+// Login types
+export const LOGIN_REQUEST = 'LOGIN_REQUEST';
+export const LOGIN_FAILED = 'LOGIN_FAILED';
+export const LOGIN_SUCCESSFULL = 'LOGIN_SUCCESSFULL';
+
+// Signup types
+export const SIGNUP_REQUEST = 'SIGNUP_REQUEST';
+export const SIGNUP_FAILED = 'SIGNUP_FAILED';
+export const SIGNUP_SUCCESSFULL = 'SIGNUP_SUCCESSFULL';

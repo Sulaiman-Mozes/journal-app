@@ -1,59 +1,57 @@
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 
 class Login extends Component {
   render() {
     return (
+      <div className="padding-top form-container padding-bottom">
+        <form className="padding-top text-center border border-light p-5" action="#!">
 
-      <form className="text-center border border-light p-5" action="#!">
-
-        <p className="h4 mb-4">Sign in</p>
-
-
-        <input type="email" id="defaultLoginFormEmail" className="form-control mb-4" placeholder="E-mail" />
+          <p className="h4 mb-4">Sign in</p>
 
 
-        <input type="password" id="defaultLoginFormPassword" className="form-control mb-4" placeholder="Password" />
+          <input type="email" id="defaultLoginFormEmail" className="form-control mb-4" placeholder="E-mail" />
 
-        <div className="d-flex justify-content-around">
-          <div>
 
-            <div className="custom-control custom-checkbox">
-              <input type="checkbox" className="custom-control-input" id="defaultLoginFormRemember" />
-              <label className="custom-control-label" htmlFor="defaultLoginFormRemember">Remember me</label>
+          <input type="password" id="defaultLoginFormPassword" className="form-control mb-4" placeholder="Password" />
+
+          <div className="d-flex justify-content-around">
+            <div>
+
+              <div className="custom-control custom-checkbox">
+                <input type="checkbox" className="custom-control-input" id="defaultLoginFormRemember" />
+                <label className="custom-control-label" htmlFor="defaultLoginFormRemember">Remember me </label>
+              </div>
+            </div>
+            <br />
+            <div>
+              <a href="/"> &nbsp; Forgot password?</a>
             </div>
           </div>
-          <div>
-
-            <a href="/">Forgot password?</a>
-          </div>
-        </div>
 
 
-        <button className="btn btn-info btn-block my-4" type="submit">Sign in</button>
+          <button className="btn btn-info btn-block my-4" type="submit">Sign in</button>
 
-        <p>
-Not a member?
-          <a href="/">Register</a>
-        </p>
+          <p>
+            Not a member?
+            <NavLink to="/signup"> Register</NavLink>
+          </p>
 
+          <p>or sign in with:</p>
 
-        <p>or sign in with:</p>
+          <NavLink className="light-blue-text mx-2" to="/signup">
+            <i className="fab fa-facebook-f" />
+          </NavLink>
+          <NavLink className="light-blue-text mx-2" to="/signup">
+            <i className="fab fa-twitter" />
+          </NavLink>
+          <NavLink className="light-blue-text mx-2" to="/signup">
+            <i className="fab fa-google" />
+          </NavLink>
 
-        <a href="/" type="button" className="light-blue-text mx-2">
-          <i className="fab fa-facebook-f" />
-        </a>
-        <a href="/" type="button" className="light-blue-text mx-2">
-          <i className="fab fa-twitter" />
-        </a>
-        <a href="/" type="button" className="light-blue-text mx-2">
-          <i className="fab fa-linkedin-in" />
-        </a>
-        <a href="/" type="button" className="light-blue-text mx-2">
-          <i className="fab fa-github" />
-        </a>
-      </form>
-
+        </form>
+      </div>
     );
   }
 }
