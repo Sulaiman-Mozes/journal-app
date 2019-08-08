@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Component renders <Header/> correctly 1`] = `
+<header>
+  <nav
+    className="navbar  fixed-top navbar-expand-lg navbar-dark py-4 indigo"
+  >
+    <NavLink
+      className="navbar-brand"
+      to="/"
+    >
+      My Journal
+    </NavLink>
+    <button
+      aria-controls="navbarText"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      className="navbar-toggler"
+      data-target="#navbarText"
+      data-toggle="collapse"
+      type="button"
+    >
+      <span
+        className="navbar-toggler-icon"
+      />
+    </button>
+    <div
+      className="collapse navbar-collapse"
+      id="navbarText"
+    >
+      <ul
+        className="navbar-nav mr-auto"
+      >
+        <li
+          className="nav-item"
+        >
+          <NavLink
+            activeStyle={
+              Object {
+                "color": "#F15B2A",
+              }
+            }
+            className="nav-link"
+            to="/about"
+          >
+            About
+          </NavLink>
+        </li>
+      </ul>
+      <ul
+        className="navbar-nav ml-auto"
+      >
+        <li
+          className="nav-item"
+        >
+          <NavLink
+            activeStyle={
+              Object {
+                "color": "#F15B2A",
+              }
+            }
+            className="nav-link"
+            to="/login"
+          >
+            Login
+          </NavLink>
+        </li>
+        <li
+          className="nav-item"
+        >
+          <NavLink
+            activeStyle={
+              Object {
+                "color": "#F15B2A",
+              }
+            }
+            className="nav-link"
+            to="/signup"
+          >
+            Signup
+          </NavLink>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+`;

@@ -5,7 +5,7 @@ class Journal extends Component {
 
   render() {
     return (
-      <div className="container align-center">
+      <div className="padding-top container align-center">
         <div className="card-columns">
           <div className="card">
             <div className="card-body">

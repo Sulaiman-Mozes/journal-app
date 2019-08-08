@@ -19,8 +19,8 @@ module.exports = {
 
       return bcrypt.hash(password, 10, (err, hash) => {
         newUser.password = hash;
-        newUser.save((err) => {
-          if (err) {
+        newUser.save((errr) => {
+          if (errr) {
             return res.status(500).send({
               status: 'Fail',
               message: 'An error Occured while creating an Account , Try Again ',

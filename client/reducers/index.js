@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import user from './userReducer';
+import users from './userReducer';
 import journals from './journalReducer';
 
-const reducer = combineReducers({
-  user,
+const rootReducer = combineReducers({
+  users,
   journals,
 });
 
-export default reducer;
+export default rootReducer;

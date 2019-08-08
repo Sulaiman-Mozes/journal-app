@@ -1,76 +1,91 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/prefer-stateless-function */
-import React, { Component } from 'react';
+import React from 'react';
+import propTypes from 'prop-types';
+import '../../assets/css/form.scss';
+import { NavLink } from 'react-router-dom';
 
-class SignUp extends Component {
-  render() {
-    return (
 
-      <form className="text-center border border-light p-5" action="#!">
+const SignUp = ({
+  handleChange, handleSubmit,
+  fields: { email, password, username },
+}) => (
+  <div className="padding-top form-container padding-bottom">
+    <form
+      className=" padding-top text-center border border-light p-5"
+      onSubmit={handleSubmit}
+    >
 
-        <p className="h4 mb-4">Sign up</p>
+      <p className="h4 mb-4">Sign up</p>
 
-        <div className="form-row mb-4">
-          <div className="col">
+      <input
+        type="text"
+        name="username"
+        id="defaultRegisterFormUsername"
+        className="form-control mb-4"
+        placeholder="Username"
+        value={username}
+        onChange={handleChange}
+      />
 
-            <input type="text" id="defaultRegisterFormFirstName" className="form-control" placeholder="First name" />
-          </div>
-          <div className="col">
+      <input
+        type="email"
+        name="email"
+        id="defaultRegisterFormEmail"
+        className="form-control mb-4"
+        placeholder="E-mail"
+        value={email}
+        onChange={handleChange}
+      />
 
-            <input type="text" id="defaultRegisterFormLastName" className="form-control" placeholder="Last name" />
-          </div>
-        </div>
+      <input
+        type="password"
+        name="password"
+        id="defaultRegisterFormPassword"
+        className="form-control"
+        placeholder="Password"
+        aria-describedby="defaultRegisterFormPasswordHelpBlock"
+        value={password}
+        onChange={handleChange}
+      />
 
-        <input type="email" id="defaultRegisterFormEmail" className="form-control mb-4" placeholder="E-mail" />
-
-        <input type="password" id="defaultRegisterFormPassword" className="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" />
-        <small id="defaultRegisterFormPasswordHelpBlock" className="form-text text-muted mb-4">
+      <small id="defaultRegisterFormPasswordHelpBlock" className="form-text text-muted mb-4">
           At least 8 characters and 1 digit
-        </small>
+      </small>
 
-        <input type="text" id="defaultRegisterPhonePassword" className="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock" />
-        <small id="defaultRegisterFormPhoneHelpBlock" className="form-text text-muted mb-4">
-          Optional - for two step authentication
-        </small>
+      <button className="btn btn-info my-4 btn-block" type="submit">Sign up</button>
 
-        <div className="custom-control custom-checkbox">
-          <input type="checkbox" className="custom-control-input" id="defaultRegisterFormNewsletter" />
-          <label className="custom-control-label" htmlFor="defaultRegisterFormNewsletter">Subscribe to our newsletter</label>
-        </div>
+      <p>or sign up with:</p>
+      <NavLink className="light-blue-text mx-2" to="/signup">
+        <i className="fab fa-facebook-f" />
+      </NavLink>
+      <NavLink className="light-blue-text mx-2" to="/signup">
+        <i className="fab fa-twitter" />
+      </NavLink>
+      <NavLink className="light-blue-text mx-2" to="/signup">
+        <i className="fab fa-google" />
+      </NavLink>
+      <hr />
 
-
-        <button className="btn btn-info my-4 btn-block" type="submit">Sign in</button>
-
-
-        <p>or sign up with:</p>
-
-        <a type="button" className="light-blue-text mx-2">
-          <i className="fab fa-facebook-f" />
-        </a>
-        <a type="button" className="light-blue-text mx-2">
-          <i className="fab fa-twitter" />
-        </a>
-        <a type="button" className="light-blue-text mx-2">
-          <i className="fab fa-linkedin-in" />
-        </a>
-        <a type="button" className="light-blue-text mx-2">
-          <i className="fab fa-github" />
-        </a>
-
-        <hr />
-
-        <p>
+      <p>
           By clicking
-          <em>Sign up</em>
-          {' '}
+        <em> Sign up </em>
           you agree to our
-          <a href="" target="_blank">terms of service</a>
-        </p>
+        <NavLink to="/" target="_blank"> terms of service</NavLink>
+      </p>
 
-      </form>
+    </form>
+  </div>
+);
 
-    );
-  }
-}
+SignUp.propTypes = {
+  handleChange: propTypes.func.isRequired,
+  handleSubmit: propTypes.func.isRequired,
+  fields: propTypes.shape({
+    email: propTypes.string.isRequired,
+    password: propTypes.string.isRequired,
+    username: propTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default SignUp;

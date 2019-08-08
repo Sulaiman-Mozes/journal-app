@@ -35,9 +35,9 @@ module.exports = {
   update: async (req, res) => {
     try {
       const { title, content, user_data: { data: { _id } } } = req.body;
-      const { journal_id } = req.params;
+      const { journalId } = req.params;
 
-      const journal = await Journal.findOne({ _id: journal_id, user_id: _id });
+      const journal = await Journal.findOne({ _id: journalId, user_id: _id });
       if (!journal) {
         return res.status(404).json({
           status: 'Failure',
@@ -60,9 +60,9 @@ module.exports = {
   delete: async (req, res) => {
     try {
       const { user_data: { data: { _id } } } = req.body;
-      const { journal_id } = req.params;
+      const { journalId } = req.params;
 
-      const data = await Journal.deleteOne({ _id: journal_id, user_id: _id });
+      const data = await Journal.deleteOne({ _id: journalId, user_id: _id });
       return data.deletedCount === 1
         ? res.status(204).json()
         : res.status(404).json({

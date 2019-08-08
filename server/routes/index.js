@@ -16,7 +16,8 @@ router.post('/api/users/login', UserController.login);
 // Journal Endpoints
 router.get('/api/journals', authenticate, JournalController.list);
 router.post('/api/journals', authenticate, JournalController.create);
-router.delete('/api/journals/:journal_id', authenticate, JournalController.delete);
+router.delete('/api/journals/:journalId', authenticate, JournalController.delete);
+router.patch('/api/journals/:journalId', authenticate, JournalController.update);
 
 
 module.exports = router;
