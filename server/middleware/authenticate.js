@@ -12,6 +12,7 @@ module.exports = (req, res, next) => {
         message: 'Token is Not Provided',
       });
     }
+
     const token = authorization.split(' ');
     const newtoken = token.length > 1 ? token[1] : token[0];
     const decoded_data = jwt.verify(newtoken, process.env.SECRET);

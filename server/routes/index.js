@@ -17,6 +17,7 @@ router.post('/api/users/login', UserController.login);
 router.get('/api/journals', authenticate, JournalController.list);
 router.post('/api/journals', authenticate, JournalController.create);
 router.delete('/api/journals/:journalId', authenticate, JournalController.delete);
+router.get('/api/journals/:journalId', authenticate, JournalController.get);
 router.patch('/api/journals/:journalId', authenticate, JournalController.update);
 
 
