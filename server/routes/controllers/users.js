@@ -41,9 +41,9 @@ module.exports = {
   },
 
   login: (req, res) => {
-    const { username, password } = req.body;
-    User.findOne({ username }).exec((error, user) => {
-      if (error) {
+    const { email, password } = req.body;
+    User.findOne({ email }).exec((error, user) => {
+      if (error || !user) {
         return res.status(401).send({
           message: 'Authentication Failed, Username or Password Incorrect',
         });
@@ -64,7 +64,7 @@ module.exports = {
             },
           });
         }
-        return res.status(403).send({
+        return res.status(401).send({
           message: 'Authentication Failed, Username or Password Incorrect',
         });
       });

@@ -26,6 +26,7 @@ const SignUp = ({
         placeholder="Username"
         value={username}
         onChange={handleChange}
+        required
       />
 
       <input
@@ -36,6 +37,7 @@ const SignUp = ({
         placeholder="E-mail"
         value={email}
         onChange={handleChange}
+        required
       />
 
       <input
@@ -47,6 +49,7 @@ const SignUp = ({
         aria-describedby="defaultRegisterFormPasswordHelpBlock"
         value={password}
         onChange={handleChange}
+        required
       />
 
       <small id="defaultRegisterFormPasswordHelpBlock" className="form-text text-muted mb-4">

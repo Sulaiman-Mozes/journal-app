@@ -9,7 +9,7 @@ module.exports = {
     } catch (error) {
       return res.status(500).json({
         status: 'Failure',
-        message: 'An error Occured while creating an Account , Try Again ',
+        message: 'An error Occured, Try Again ',
       });
     }
   },
@@ -21,14 +21,30 @@ module.exports = {
 
       const resp = await newJournal.save();
 
-      return res.status(201).json({
-        status: 'success',
-        journal: resp,
-      });
+      return res.status(201).json(resp);
     } catch (error) {
       return res.status(500).json({
         status: 'Failure',
-        message: 'An error Occured while creating an Account , Try Again ',
+        message: 'An error Occured, Try Again ',
+      });
+    }
+  },
+  get: async (req, res) => {
+    try {
+      const { user_data: { data: { _id } } } = req.body;
+      const { journalId } = req.params;
+      const journal = await Journal.findOne({ _id: journalId, user_id: _id });
+      if (!journal) {
+        return res.status(404).json({
+          status: 'Failure',
+          message: 'Journal Not Found',
+        });
+      }
+      return res.status(200).json(journal);
+    } catch (error) {
+      return res.status(500).json({
+        status: 'Failure',
+        message: 'An error Occured, Try Again ',
       });
     }
   },
@@ -52,7 +68,7 @@ module.exports = {
     } catch (error) {
       return res.status(500).json({
         status: 'Failure',
-        message: 'An error Occured while creating an Account , Try Again ',
+        message: 'An error Occured, Try Again ',
       });
     }
   },
@@ -72,7 +88,7 @@ module.exports = {
     } catch (err) {
       return res.status(500).json({
         status: 'Failure',
-        message: 'An error Occured while creating an Account , Try Again ',
+        message: 'An error Occured, Try Again ',
       });
     }
   },

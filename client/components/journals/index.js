@@ -1,16 +1,17 @@
-import React, { Component } from 'react';
+/* eslint-disable no-underscore-dangle */
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class Journal extends Component {
-  componentWillMount() { }
+const JournalItems = ({ notes }) => (
+  <div className="container align-center">
+    <div className="card-columns">
+      {
+        notes.map(note => (
 
-  render() {
-    return (
-      <div className="padding-top container align-center">
-        <div className="card-columns">
-          <div className="card">
+          <div key={note._id} className="card mb-4">
             <div className="card-body">
-              <h5 className="card-title">Card title that wraps to a new line</h5>
-              <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <h5 className="card-title">{note.title}</h5>
+              <p className="card-text">{note.content}</p>
               <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
               <div className="d-flex justify-content-around">
                 <button type="button" className="btn btn-primary btn-sm">Update</button>
@@ -19,10 +20,15 @@ class Journal extends Component {
             </div>
 
           </div>
-        </div>
-      </div>
-    );
-  }
-}
 
-export default Journal;
+        ))
+      }
+    </div>
+  </div>
+);
+
+JournalItems.propTypes = {
+  notes: PropTypes.arrayOf(Object).isRequired,
+};
+
+export default JournalItems;
