@@ -1,5 +1,6 @@
 import * as types from '../actionTypes';
 import axios from '../../utils/axiosInstance';
+import { handleError, handleSuccess } from '../../utils/toasts';
 
 export const getNotesRequest = () => ({ type: types.GET_NOTES_REQUEST });
 
@@ -24,8 +25,14 @@ export const addNoteSuccessful = payload => ({ type: types.ADD_NOTE_SUCCESSFULL,
 export const addNote = params => (dispatch) => {
   dispatch(addNoteRequest());
   return axios.post('/journals', params)
-    .then(res => dispatch(addNoteSuccessful(res.data)))
-    .catch(err => dispatch(addNoteFailed(err.response.data)));
+    .then((res) => {
+      handleSuccess('Note Successfully Added');
+      dispatch(addNoteSuccessful(res.data));
+    })
+    .catch((err) => {
+      handleError('Failed To Add Note');
+      dispatch(addNoteFailed(err.response.data));
+    });
 };
 
 
@@ -38,7 +45,7 @@ export const getSingleNoteSuccessful = payload => (
 
 export const getSingleNote = params => (dispatch) => {
   dispatch(getSingleNoteRequest());
-  return axios.post('/journals', params)
+  return axios.get('/journals', params)
     .then(res => dispatch(getSingleNoteSuccessful(res.data)))
     .catch(err => dispatch(getSingleNoteFailed(err.response.data)));
 };
@@ -50,11 +57,17 @@ export const deleteNoteFailed = payload => ({ type: types.DELETE_NOTE_FAILED, pa
 
 export const deleteNoteSuccessful = payload => ({ type: types.DELETE_NOTE_SUCCESSFULL, payload });
 
-export const deleteNote = params => (dispatch) => {
+export const deleteNote = id => (dispatch) => {
   dispatch(deleteNoteRequest());
-  return axios.post('/journals', params)
-    .then(res => dispatch(deleteNoteSuccessful(res.data)))
-    .catch(err => dispatch(deleteNoteFailed(err.response.data)));
+  return axios.delete(`/journals/${id}`)
+    .then(() => {
+      handleSuccess('Note Successfully Deleted');
+      dispatch(deleteNoteSuccessful(id));
+    })
+    .catch((err) => {
+      handleError('Failed To Delete Note');
+      dispatch(deleteNoteFailed(err));
+    });
 };
 
 
@@ -66,7 +79,7 @@ export const updateNoteSuccessful = payload => ({ type: types.UPDATE_NOTE_SUCCES
 
 export const updateNote = params => (dispatch) => {
   dispatch(updateNoteRequest());
-  return axios.post('/journals', params)
+  return axios.put('/journals', params)
     .then(res => dispatch(updateNoteSuccessful(res.data)))
     .catch(err => dispatch(updateNoteFailed(err.response.data)));
 };

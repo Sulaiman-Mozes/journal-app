@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const JournalItems = ({ notes }) => (
+const JournalItems = ({ notes, handleDelete }) => (
   <div className="container align-center">
     <div className="card-columns">
       {
@@ -15,7 +15,16 @@ const JournalItems = ({ notes }) => (
               <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
               <div className="d-flex justify-content-around">
                 <button type="button" className="btn btn-primary btn-sm">Update</button>
-                <button type="button" className="btn btn-danger btn-sm">Delete</button>
+                <button
+                  type="button"
+                  data-toggle="modal"
+                  data-target="#modalConfirmDelete"
+                  className="btn btn-danger btn-sm"
+                  onClick={() => handleDelete(note._id)}
+                >
+                  Delete
+                </button>
+
               </div>
             </div>
 
@@ -29,6 +38,7 @@ const JournalItems = ({ notes }) => (
 
 JournalItems.propTypes = {
   notes: PropTypes.arrayOf(Object).isRequired,
+  handleDelete: PropTypes.func.isRequired,
 };
 
 export default JournalItems;

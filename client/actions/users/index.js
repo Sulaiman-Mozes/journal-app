@@ -1,6 +1,6 @@
 import * as types from '../actionTypes';
 import axios, { setAuthToken } from '../../utils/axiosInstance';
-import { handleError, handleSuccess } from '../toasts';
+import { handleError, handleSuccess } from '../../utils/toasts';
 
 
 export const signupRequest = () => ({ type: types.SIGNUP_REQUEST });

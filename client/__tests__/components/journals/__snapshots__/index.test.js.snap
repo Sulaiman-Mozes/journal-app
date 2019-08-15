@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Provider and JournalItems renders <Provider/> correctly 1`] = `
+<div
+  className="container align-center"
+>
+  <div
+    className="card-columns"
+  >
+    <div
+      className="card mb-4"
+      key="q26738wueyihg98"
+    >
+      <div
+        className="card-body"
+      >
+        <h5
+          className="card-title"
+        >
+          title
+        </h5>
+        <p
+          className="card-text"
+        >
+          content
+        </p>
+        <p
+          className="card-text"
+        >
+          <small
+            className="text-muted"
+          >
+            Last updated 3 mins ago
+          </small>
+        </p>
+        <div
+          className="d-flex justify-content-around"
+        >
+          <button
+            className="btn btn-primary btn-sm"
+            type="button"
+          >
+            Update
+          </button>
+          <button
+            className="btn btn-danger btn-sm"
+            data-target="#modalConfirmDelete"
+            data-toggle="modal"
+            onClick={[Function]}
+            type="button"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

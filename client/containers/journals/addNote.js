@@ -18,6 +18,7 @@ class AddNote extends Component {
     const { addNoteFunc } = this.props;
     const { fields } = this.state;
     addNoteFunc(fields);
+    this.setState({ fields: { title: '', content: '' } });
   };
 
   render() {
