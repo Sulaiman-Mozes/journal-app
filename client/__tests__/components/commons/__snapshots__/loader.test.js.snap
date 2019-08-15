@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Provider and Loader renders <Provider/> correctly 1`] = `
+<div
+  className="flex-notfound text-center"
+>
+  <div
+    className="spinner-border"
+    role="status"
+  >
+    <span
+      className="sr-only"
+    >
+      Loading...
+    </span>
+  </div>
+</div>
+`;

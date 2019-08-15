@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import initialState from '../initialState';
 import * as types from '../../actions/actionTypes';
 
@@ -24,6 +25,13 @@ const journalReducer = (state = initialState.journals, action) => {
       };
     case types.ADD_NOTE_FAILED:
       return { ...state, add: { ...state.add, loading: false, error: action.payload } };
+    case types.DELETE_NOTE_SUCCESSFULL:
+      return {
+        ...state,
+        list: {
+          ...state.list, notes: state.list.notes.filter(note => note._id !== action.payload),
+        },
+      };
     default:
       return { ...state };
   }

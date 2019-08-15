@@ -4,29 +4,37 @@ import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import JournalList from '../../components/journals';
 import AddNote from './addNote';
+import DeleteNote from './deleteNote';
 import { getNotes } from '../../actions/journals';
 import Loader from '../../components/commons/loader';
 import NotFound from '../../components/commons/notFound';
 
+
 class Journals extends Component {
-  state = {}
+  state = { deleteId: '' }
 
   componentWillMount() {
     const { getAllNotes } = this.props;
     getAllNotes();
   }
 
+  handleDelete = (id) => {
+    this.setState({ deleteId: id });
+  };
+
   render() {
     const { list: { notes, loading } } = this.props;
+    const { deleteId } = this.state;
     return (
       <div>
 
         <AddNote />
+        <DeleteNote id={deleteId} />
         {
           loading ? <Loader />
             : (
               notes.length > 0
-                ? (<JournalList notes={notes} />)
+                ? (<JournalList notes={notes} handleDelete={this.handleDelete} />)
                 : (
                   <NotFound
                     title="No Results"

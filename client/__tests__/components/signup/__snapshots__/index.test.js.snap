@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Provider and Signup renders <Provider/> correctly 1`] = `
+<div
+  className="padding-top form-container padding-bottom"
+>
+  <form
+    className=" padding-top text-center border border-light p-5"
+    onSubmit={[MockFunction]}
+  >
+    <p
+      className="h4 mb-4"
+    >
+      Sign up
+    </p>
+    <input
+      className="form-control mb-4"
+      id="defaultRegisterFormUsername"
+      name="username"
+      onChange={[MockFunction]}
+      placeholder="Username"
+      required={true}
+      type="text"
+      value=""
+    />
+    <input
+      className="form-control mb-4"
+      id="defaultRegisterFormEmail"
+      name="email"
+      onChange={[MockFunction]}
+      placeholder="E-mail"
+      required={true}
+      type="email"
+      value=""
+    />
+    <input
+      aria-describedby="defaultRegisterFormPasswordHelpBlock"
+      className="form-control"
+      id="defaultRegisterFormPassword"
+      name="password"
+      onChange={[MockFunction]}
+      placeholder="Password"
+      required={true}
+      type="password"
+      value=""
+    />
+    <small
+      className="form-text text-muted mb-4"
+      id="defaultRegisterFormPasswordHelpBlock"
+    >
+      At least 8 characters and 1 digit
+    </small>
+    <button
+      className="btn btn-info my-4 btn-block"
+      type="submit"
+    >
+      Sign up
+    </button>
+    <p>
+      or sign up with:
+    </p>
+    <NavLink
+      className="light-blue-text mx-2"
+      to="/signup"
+    >
+      <i
+        className="fab fa-facebook-f"
+      />
+    </NavLink>
+    <NavLink
+      className="light-blue-text mx-2"
+      to="/signup"
+    >
+      <i
+        className="fab fa-twitter"
+      />
+    </NavLink>
+    <NavLink
+      className="light-blue-text mx-2"
+      to="/signup"
+    >
+      <i
+        className="fab fa-google"
+      />
+    </NavLink>
+    <hr />
+    <p>
+      By clicking
+      <em>
+         Sign up 
+      </em>
+      you agree to our
+      <NavLink
+        target="_blank"
+        to="/"
+      >
+         terms of service
+      </NavLink>
+    </p>
+  </form>
+</div>
+`;

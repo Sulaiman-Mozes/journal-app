@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Provider and NotFound renders <Provider/> correctly 1`] = `
+<div
+  className="flex-notfound text-center"
+>
+  <div>
+    <h2>
+      Something went wrong
+    </h2>
+    <br />
+    <p>
+      Sorry, the page you are requesting for was not found
+    </p>
+  </div>
+</div>
+`;

@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Provider and DeleteNoteModal renders <Provider/> correctly 1`] = `
+<div
+  aria-hidden="true"
+  aria-labelledby="exampleModalLabel"
+  className="modal fade"
+  id="modalConfirmDelete"
+  role="dialog"
+  tabIndex="-1"
+>
+  <div
+    className="modal-dialog modal-sm modal-notify modal-danger"
+    role="document"
+  >
+    <div
+      className="modal-content text-center"
+    >
+      <div
+        className="modal-header d-flex justify-content-center"
+      >
+        <p
+          className="heading"
+        >
+          Are you sure?
+        </p>
+      </div>
+      <div
+        className="modal-body"
+      >
+        <i
+          className="fas fa-times fa-4x animated rotateIn"
+        />
+      </div>
+      <div
+        className="modal-footer flex-center"
+      >
+        <button
+          className="btn  btn-outline-danger"
+          data-dismiss="modal"
+          onClick={[MockFunction]}
+          type="button"
+        >
+          Yes
+        </button>
+        <button
+          className="btn  btn-danger waves-effect"
+          data-dismiss="modal"
+          type="button"
+        >
+          No
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Provider and AddNoteForm renders <Provider/> correctly 1`] = `
+<section
+  className="padding-top mb-4 container"
+>
+  <h4
+    className="h4-responsive font-weight-bold text-center my-4"
+  >
+    Add Note
+  </h4>
+  <div
+    className="col-md-12 mb-5"
+  >
+    <form
+      onSubmit={[MockFunction]}
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-md-12"
+        >
+          <div
+            className="md-form mb-0"
+          >
+            <input
+              className="form-control"
+              id="title"
+              name="title"
+              onChange={[MockFunction]}
+              placeholder="Title"
+              required={true}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="col-md-12"
+        >
+          <div
+            className="md-form"
+          >
+            <textarea
+              className="form-control md-textarea"
+              id="content"
+              name="content"
+              onChange={[MockFunction]}
+              placeholder="Content"
+              required={true}
+              rows="2"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        className="text-center text-md-left"
+      >
+        <button
+          className="btn btn-primary"
+          type="submit"
+        >
+          Add
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+`;
