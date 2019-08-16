@@ -1,11 +1,13 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-const NoteForm = ({ fields: { title, content }, handleChange, handleSubmit }) => (
+const NoteForm = ({
+  formTitle, buttonName, fields: { title, content }, handleChange, handleSubmit,
+}) => (
 
   <section className="padding-top mb-4 container">
 
-    <h4 className="h4-responsive font-weight-bold text-center my-4">Add Note</h4>
+    <h4 className="h4-responsive font-weight-bold text-center my-4">{formTitle}</h4>
 
     <div className="col-md-12 mb-5">
       <form onSubmit={handleSubmit}>
@@ -47,7 +49,7 @@ const NoteForm = ({ fields: { title, content }, handleChange, handleSubmit }) =>
         </div>
 
         <div className="text-center text-md-left">
-          <button type="submit" className="btn btn-primary">Add</button>
+          <button type="submit" className="btn btn-primary">{buttonName}</button>
         </div>
 
       </form>
@@ -60,12 +62,19 @@ const NoteForm = ({ fields: { title, content }, handleChange, handleSubmit }) =>
 
 
 NoteForm.propTypes = {
-  handleChange: propTypes.func.isRequired,
-  handleSubmit: propTypes.func.isRequired,
-  fields: propTypes.shape({
-    title: propTypes.string.isRequired,
-    content: propTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  fields: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
   }).isRequired,
+  formTitle: PropTypes.string,
+  buttonName: PropTypes.string,
+};
+
+NoteForm.defaultProps = {
+  formTitle: 'Add Note',
+  buttonName: 'Add',
 };
 
 export default NoteForm;

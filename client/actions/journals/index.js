@@ -36,21 +36,6 @@ export const addNote = params => (dispatch) => {
 };
 
 
-export const getSingleNoteRequest = payload => ({ type: types.GET_SINGLE_NOTE_REQUEST, payload });
-
-export const getSingleNoteFailed = payload => ({ type: types.GET_SINGLE_NOTE_FAILED, payload });
-
-export const getSingleNoteSuccessful = payload => (
-  { type: types.GET_SINGLE_NOTE_SUCCESSFULL, payload });
-
-export const getSingleNote = params => (dispatch) => {
-  dispatch(getSingleNoteRequest());
-  return axios.get('/journals', params)
-    .then(res => dispatch(getSingleNoteSuccessful(res.data)))
-    .catch(err => dispatch(getSingleNoteFailed(err.response.data)));
-};
-
-
 export const deleteNoteRequest = payload => ({ type: types.DELETE_NOTE_REQUEST, payload });
 
 export const deleteNoteFailed = payload => ({ type: types.DELETE_NOTE_FAILED, payload });
@@ -71,6 +56,10 @@ export const deleteNote = id => (dispatch) => {
 };
 
 
+export const updateData = payload => ({ type: types.UPDATE_DATA, payload });
+
+export const setUpdateSuccessToFalse = () => ({ type: types.SET_UPDATE_SUCCEESS_TO_FALSE });
+
 export const updateNoteRequest = payload => ({ type: types.UPDATE_NOTE_REQUEST, payload });
 
 export const updateNoteFailed = payload => ({ type: types.UPDATE_NOTE_FAILED, payload });
@@ -79,7 +68,32 @@ export const updateNoteSuccessful = payload => ({ type: types.UPDATE_NOTE_SUCCES
 
 export const updateNote = params => (dispatch) => {
   dispatch(updateNoteRequest());
-  return axios.put('/journals', params)
-    .then(res => dispatch(updateNoteSuccessful(res.data)))
-    .catch(err => dispatch(updateNoteFailed(err.response.data)));
+  // eslint-disable-next-line no-underscore-dangle
+  return axios.put(`/journals/${params._id}`, params)
+    .then((res) => {
+      handleSuccess('Note Successfully Updated');
+      dispatch(updateNoteSuccessful(res.data));
+    })
+    .catch((err) => {
+      handleSuccess('Failed To Update Note');
+      dispatch(updateNoteFailed(err.response.data));
+    });
+};
+
+
+export const getSingleNoteRequest = payload => ({ type: types.GET_SINGLE_NOTE_REQUEST, payload });
+
+export const getSingleNoteFailed = payload => ({ type: types.GET_SINGLE_NOTE_FAILED, payload });
+
+export const getSingleNoteSuccessful = payload => (
+  { type: types.GET_SINGLE_NOTE_SUCCESSFULL, payload });
+
+export const getSingleNote = id => (dispatch) => {
+  dispatch(getSingleNoteRequest());
+  return axios.get(`/journals/${id}`)
+    .then((res) => {
+      dispatch(updateData(res.data));
+      dispatch(getSingleNoteSuccessful(res.data));
+    })
+    .catch(err => dispatch(getSingleNoteFailed(err.response.data)));
 };

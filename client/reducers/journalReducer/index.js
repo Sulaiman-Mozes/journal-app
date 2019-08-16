@@ -32,6 +32,19 @@ const journalReducer = (state = initialState.journals, action) => {
           ...state.list, notes: state.list.notes.filter(note => note._id !== action.payload),
         },
       };
+    case types.UPDATE_DATA:
+      return {
+        ...state,
+        data: { ...action.payload },
+      };
+    case types.SET_UPDATE_SUCCEESS_TO_FALSE:
+      return { ...state, update: { ...state.update, updateSuccess: false } };
+    case types.UPDATE_NOTE_REQUEST:
+      return { ...state, update: { ...state.update, loading: true } };
+    case types.UPDATE_NOTE_SUCCESSFULL:
+      return { ...state, update: { ...state.update, updateSuccess: true, loading: false } };
+    case types.UPDATE_NOTE_FAILED:
+      return { ...state, update: { ...state.update, loading: false } };
     default:
       return { ...state };
   }
