@@ -7,6 +7,7 @@ import Home from '../home';
 import Header from '../../containers/header';
 import Footer from '../footer';
 import Journal from '../../containers/journals';
+import UpdateNote from '../../containers/journals/updateNote';
 import Login from '../../containers/users/login';
 import Signup from '../../containers/users/signup';
 import NotFound from '../commons/notFound';
@@ -25,6 +26,7 @@ const App = () => (
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
         <ProtectedRoute exact path="/dashboard" component={Journal} />
+        <ProtectedRoute exact path="/update/:id" component={UpdateNote} />
         <Route component={NotFound} />
       </Switch>
       <Footer />

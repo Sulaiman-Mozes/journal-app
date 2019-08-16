@@ -1,6 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 const JournalItems = ({ notes, handleDelete }) => (
   <div className="container align-center">
@@ -14,7 +15,11 @@ const JournalItems = ({ notes, handleDelete }) => (
               <p className="card-text">{note.content}</p>
               <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
               <div className="d-flex justify-content-around">
-                <button type="button" className="btn btn-primary btn-sm">Update</button>
+
+                <NavLink to={`/update/${note._id}`}>
+                  <button type="button" className="btn btn-primary btn-sm">Update</button>
+                </NavLink>
+
                 <button
                   type="button"
                   data-toggle="modal"
@@ -22,7 +27,7 @@ const JournalItems = ({ notes, handleDelete }) => (
                   className="btn btn-danger btn-sm"
                   onClick={() => handleDelete(note._id)}
                 >
-                  Delete
+                    Delete
                 </button>
 
               </div>

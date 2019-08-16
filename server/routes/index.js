@@ -18,7 +18,7 @@ router.get('/api/journals', authenticate, JournalController.list);
 router.post('/api/journals', authenticate, JournalController.create);
 router.delete('/api/journals/:journalId', authenticate, JournalController.delete);
 router.get('/api/journals/:journalId', authenticate, JournalController.get);
-router.patch('/api/journals/:journalId', authenticate, JournalController.update);
+router.put('/api/journals/:journalId', authenticate, JournalController.update);
 
 
 module.exports = router;
