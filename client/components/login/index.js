@@ -62,18 +62,6 @@ const Login = ({
         <NavLink to="/signup"> Register</NavLink>
       </p>
 
-      <p>or sign in with:</p>
-
-      <NavLink className="light-blue-text mx-2" to="/signup">
-        <i className="fab fa-facebook-f" />
-      </NavLink>
-      <NavLink className="light-blue-text mx-2" to="/signup">
-        <i className="fab fa-twitter" />
-      </NavLink>
-      <NavLink className="light-blue-text mx-2" to="/signup">
-        <i className="fab fa-google" />
-      </NavLink>
-
     </form>
   </div>
 );

@@ -4,10 +4,10 @@ import propTypes from 'prop-types';
 import { addNote } from '../../actions/journals';
 import AddNoteForm from '../../components/journals/form';
 
-class AddNote extends Component {
+export class AddNote extends Component {
   state = { fields: { title: '', content: '' } };
 
-  handelChange = (event) => {
+  handleChange = (event) => {
     const { name, value } = event.target;
     const { fields } = this.state;
     this.setState({ fields: { ...fields, [name]: value } });
@@ -25,7 +25,7 @@ class AddNote extends Component {
     const { fields } = this.state;
     return (
       <AddNoteForm
-        handleChange={this.handelChange}
+        handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
         fields={fields}
       />

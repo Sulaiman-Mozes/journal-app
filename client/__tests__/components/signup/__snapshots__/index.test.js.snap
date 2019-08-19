@@ -56,33 +56,6 @@ exports[`Provider and Signup renders <Provider/> correctly 1`] = `
     >
       Sign up
     </button>
-    <p>
-      or sign up with:
-    </p>
-    <NavLink
-      className="light-blue-text mx-2"
-      to="/signup"
-    >
-      <i
-        className="fab fa-facebook-f"
-      />
-    </NavLink>
-    <NavLink
-      className="light-blue-text mx-2"
-      to="/signup"
-    >
-      <i
-        className="fab fa-twitter"
-      />
-    </NavLink>
-    <NavLink
-      className="light-blue-text mx-2"
-      to="/signup"
-    >
-      <i
-        className="fab fa-google"
-      />
-    </NavLink>
     <hr />
     <p>
       By clicking

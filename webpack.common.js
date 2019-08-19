@@ -1,10 +1,7 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
 // const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  mode: 'development',
   entry: path.resolve(__dirname, 'client'),
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -14,8 +11,10 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-  devServer: {
-    historyApiFallback: true,
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
   },
   module: {
     rules: [
@@ -50,11 +49,5 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new Dotenv(),
-    new HtmlWebpackPlugin({
-      title: 'My Journal',
-      template: './public/index.html',
-    }),
-  ],
+
 };

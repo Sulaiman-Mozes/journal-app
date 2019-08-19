@@ -7,7 +7,7 @@ import {
 } from '../../actions/journals';
 
 
-class UpdateNote extends Component {
+export class UpdateNote extends Component {
   static getDerivedStateFromProps(props) {
     const {
       update: { updateSuccess }, history,
@@ -30,7 +30,7 @@ class UpdateNote extends Component {
     getSingleNoteFunc(id);
   }
 
-  handelChange = (event) => {
+  handleChange = (event) => {
     const { name, value } = event.target;
     const { data, updateDataFunc } = this.props;
     updateDataFunc({ ...data, [name]: value });
@@ -50,7 +50,7 @@ class UpdateNote extends Component {
         <UpdateNoteForm
           formTitle="Update Note"
           buttonName="UPDATE"
-          handleChange={this.handelChange}
+          handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
           fields={data}
         />

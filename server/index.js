@@ -2,6 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const path = require('path');
 const cors = require('cors');
 
 
@@ -25,6 +26,11 @@ mongoose
 app.use(bodyParser.json());
 app.use(cors());
 
+app.use(express.static(path.join(__dirname, '../dist')));
 app.use(routes);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/../dist/index.html'));
+});
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

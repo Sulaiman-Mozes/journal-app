@@ -5,7 +5,7 @@ import LoginComponent from '../../components/login';
 import { userLogin } from '../../actions/users';
 
 
-class LoginPage extends Component {
+export class LoginPage extends Component {
   static getDerivedStateFromProps(props) {
     const {
       users: {

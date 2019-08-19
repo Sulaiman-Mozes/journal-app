@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import DeleteModal from '../../components/journals/deleteModal';
 import { deleteNote } from '../../actions/journals';
 
-class DeleteNote extends Component {
+export class DeleteNote extends Component {
   handleDelete = () => {
     const { id, deleteFunc } = this.props;
     deleteFunc(id);
