@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UpdateNotePage Container should render correctly 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "storeState": Object {},
+    }
+  }
+>
+  <Connect(UpdateNote)
+    addNoteFunc={[MockFunction]}
+    data={
+      Object {
+        "content": "",
+        "title": "",
+      }
+    }
+    getSingleNoteFunc={[MockFunction]}
+    history={
+      Object {
+        "push": [MockFunction],
+      }
+    }
+    match={
+      Object {
+        "params": Object {
+          "id": "64738ewuyifhsjknvue8739",
+        },
+      }
+    }
+    setUpdateSuccessToFalseFunc={[MockFunction]}
+    update={
+      Object {
+        "updateSuccess": "update success",
+      }
+    }
+    updateDataFunc={[MockFunction]}
+    updateNoteFunc={[MockFunction]}
+  />
+</ContextProvider>
+`;

@@ -5,7 +5,7 @@ import { logoutAction, updateLoginStatus } from '../../actions/users';
 import { setAuthToken } from '../../utils/axiosInstance';
 import HeaderComponent from '../../components/header';
 
-class Header extends Component {
+export class Header extends Component {
   componentWillMount() {
     const token = localStorage.getItem('AUTH_TOKEN');
     const username = localStorage.getItem('AUTH_USERNAME');
@@ -23,7 +23,6 @@ class Header extends Component {
     localStorage.clear();
     logoutFunc();
     setAuthToken(false);
-    // history.push('/login');
   }
 
   render() {

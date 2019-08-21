@@ -36,12 +36,16 @@ exports[`Provider and JournalItems renders <Provider/> correctly 1`] = `
         <div
           className="d-flex justify-content-around"
         >
-          <button
-            className="btn btn-primary btn-sm"
-            type="button"
+          <NavLink
+            to="/update/q26738wueyihg98"
           >
-            Update
-          </button>
+            <button
+              className="btn btn-primary btn-sm"
+              type="button"
+            >
+              Update
+            </button>
+          </NavLink>
           <button
             className="btn btn-danger btn-sm"
             data-target="#modalConfirmDelete"

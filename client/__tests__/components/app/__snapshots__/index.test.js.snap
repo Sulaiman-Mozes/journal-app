@@ -81,6 +81,11 @@ exports[`Provider and App renders <Provider/> correctly 2`] = `
       exact={true}
       path="/dashboard"
     />
+    <ProtectedRoute
+      component={[Function]}
+      exact={true}
+      path="/update/:id"
+    />
     <Route
       component={[Function]}
     />

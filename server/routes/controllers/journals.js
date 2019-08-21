@@ -19,6 +19,13 @@ module.exports = {
       const { title, content, user_data: { data: { _id } } } = req.body;
       const newJournal = new Journal({ title, content, user_id: _id });
 
+      if (!title || !content) {
+        return res.status(400).json({
+          status: 'Failure',
+          message: 'All Feilds are required',
+        });
+      }
+
       const resp = await newJournal.save();
 
       return res.status(201).json(resp);
@@ -53,6 +60,13 @@ module.exports = {
       const { title, content, user_data: { data: { _id } } } = req.body;
       const { journalId } = req.params;
 
+      if (!title || !content) {
+        return res.status(400).json({
+          status: 'Failure',
+          message: 'All Feilds are required',
+        });
+      }
+
       const journal = await Journal.findOne({ _id: journalId, user_id: _id });
       if (!journal) {
         return res.status(404).json({
@@ -60,7 +74,7 @@ module.exports = {
           message: 'Journal Not Found',
         });
       }
-      const updatedjournal = await journal.update({ title, content });
+      const updatedjournal = await journal.updateOne({ title, content });
       return res.status(200).json({
         status: 'success',
         journal: updatedjournal,

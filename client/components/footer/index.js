@@ -8,10 +8,10 @@ const Footer = () => (
     <div className="container">
       <ul className="list-unstyled list-inline text-center py-2">
         <li className="list-inline-item">
-          <h5 className="mb-1">Register for free</h5>
+          <h5 className="mb-1">Welcome to</h5>
         </li>
         <li className="list-inline-item">
-          <a href="#!" className="btn btn-outline-white btn-rounded">Sign up!</a>
+          <button type="button" className="btn btn-outline-white btn-rounded">My Journal</button>
         </li>
       </ul>
     </div>

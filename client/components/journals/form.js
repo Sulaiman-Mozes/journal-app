@@ -24,6 +24,7 @@ const NoteForm = ({
                 placeholder="Title"
                 onChange={handleChange}
                 value={title}
+                autoComplete="off"
               />
             </div>
           </div>

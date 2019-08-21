@@ -13,12 +13,17 @@ class Home extends Component {
             <div className="mask rgba-black-light flex-center">
               <div className="container text-center white-text">
                 <div className="white-text text-center wow ">
-                  <h2>This Navbar is fixed</h2>
-                  <h5>It will always stay visible on the top, even when you scroll down</h5>
+                  <h2>Capture your memories</h2>
+                  <h5>
+                    Start writing your thoughts and memories
+                    and have them synced and backed up in the cloud.
+                  </h5>
                   <br />
                   <p>
-                    Full page intro with background image will be always displayed in
-                    full screen mode, regardless of device
+                    My Journal provides a simple and beautiful interface to capture your
+                     thoughts and moments.
+                    Use My Journal as a personal journal to track your daily activities,
+                     record your travels, people you meet.
                   </p>
                 </div>
               </div>
@@ -27,13 +32,18 @@ class Home extends Component {
         </div>
         <div className="container">
           <br />
-          <div className="row">
-            <div className="col-md-12">
+          <br />
+          <p align="justify">
+            Join millions of Journey users and create a healthier, happier mind. A sanctuary
+             for your mind and soul, Journey will help increase your positive energy, be more
+             grateful and a calmer mind by building healthy thinkings through journaling.
+          </p>
+          <p align="justify">
+            We&apos;re more than just a journal, or a diary; we&apos;re your own motivational coach
+             and happiness trainer. Let&apos;s embark on a fabulous journey of self-improvement
+              today.
+          </p>
 
-              <p align="justify">quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-            </div>
-          </div>
         </div>
 
       </main>

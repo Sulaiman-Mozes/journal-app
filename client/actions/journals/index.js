@@ -10,7 +10,7 @@ export const getNotesSuccessful = payload => ({ type: types.GET_NOTES_SUCCESSFUL
 
 export const getNotes = () => (dispatch) => {
   dispatch(getNotesRequest());
-  return axios.get('/journals')
+  return axios.get('/api/journals')
     .then(res => dispatch(getNotesSuccessful(res.data)))
     .catch(err => dispatch(getNotesFailed(err.response.data)));
 };
@@ -24,7 +24,7 @@ export const addNoteSuccessful = payload => ({ type: types.ADD_NOTE_SUCCESSFULL,
 
 export const addNote = params => (dispatch) => {
   dispatch(addNoteRequest());
-  return axios.post('/journals', params)
+  return axios.post('/api/journals', params)
     .then((res) => {
       handleSuccess('Note Successfully Added');
       dispatch(addNoteSuccessful(res.data));
@@ -44,7 +44,7 @@ export const deleteNoteSuccessful = payload => ({ type: types.DELETE_NOTE_SUCCES
 
 export const deleteNote = id => (dispatch) => {
   dispatch(deleteNoteRequest());
-  return axios.delete(`/journals/${id}`)
+  return axios.delete(`/api/journals/${id}`)
     .then(() => {
       handleSuccess('Note Successfully Deleted');
       dispatch(deleteNoteSuccessful(id));
@@ -69,13 +69,13 @@ export const updateNoteSuccessful = payload => ({ type: types.UPDATE_NOTE_SUCCES
 export const updateNote = params => (dispatch) => {
   dispatch(updateNoteRequest());
   // eslint-disable-next-line no-underscore-dangle
-  return axios.put(`/journals/${params._id}`, params)
+  return axios.put(`/api/journals/${params._id}`, params)
     .then((res) => {
       handleSuccess('Note Successfully Updated');
       dispatch(updateNoteSuccessful(res.data));
     })
     .catch((err) => {
-      handleSuccess('Failed To Update Note');
+      handleError('Failed To Update Note');
       dispatch(updateNoteFailed(err.response.data));
     });
 };
@@ -90,7 +90,7 @@ export const getSingleNoteSuccessful = payload => (
 
 export const getSingleNote = id => (dispatch) => {
   dispatch(getSingleNoteRequest());
-  return axios.get(`/journals/${id}`)
+  return axios.get(`/api/journals/${id}`)
     .then((res) => {
       dispatch(updateData(res.data));
       dispatch(getSingleNoteSuccessful(res.data));
