@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JournalPage Container should render correctly 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "storeState": Object {},
+    }
+  }
+>
+  <Connect(DeleteNote)
+    deleteFunc={[MockFunction]}
+    id="6347ewytug7854uieajksfhv9ioq34"
+  />
+</ContextProvider>
+`;

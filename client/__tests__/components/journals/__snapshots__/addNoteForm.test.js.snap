@@ -25,6 +25,7 @@ exports[`Provider and AddNoteForm renders <Provider/> correctly 1`] = `
             className="md-form mb-0"
           >
             <input
+              autoComplete="off"
               className="form-control"
               id="title"
               name="title"

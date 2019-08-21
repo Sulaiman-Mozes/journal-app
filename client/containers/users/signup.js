@@ -1,11 +1,11 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import SignupComponent from '../../components/signup';
 import { signupUser } from '../../actions/users';
 
 
-class SignupPage extends Component {
+export class SignupPage extends Component {
   state = { fields: { email: '', password: '', username: '' } }
 
   handleChange = (event) => {
@@ -19,19 +19,18 @@ class SignupPage extends Component {
     const { registerUser } = this.props;
     const { fields } = this.state;
     registerUser(fields);
+    this.setState({ fields: { email: '', password: '', username: '' } });
   }
 
   render() {
     const { fields } = this.state;
 
     return (
-      <Fragment>
-        <SignupComponent
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          fields={fields}
-        />
-      </Fragment>
+      <SignupComponent
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+        fields={fields}
+      />
     );
   }
 }
@@ -44,8 +43,4 @@ const mapDispatchToProps = {
   registerUser: signupUser,
 };
 
-const mapStateToProps = state => ({
-  state,
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(SignupPage);
+export default connect(null, mapDispatchToProps)(SignupPage);

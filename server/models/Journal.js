@@ -15,6 +15,7 @@ const JournalSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'users',
   },
+  updatedAt: { type: Date, default: Date.now },
 });
 
 module.exports = mongoose.model('journals', JournalSchema);

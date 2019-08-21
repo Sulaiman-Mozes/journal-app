@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginContainer should render correctly 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "storeState": Object {},
+    }
+  }
+>
+  <Connect(LoginPage)
+    history={
+      Object {
+        "push": [MockFunction],
+      }
+    }
+    loginUser={[MockFunction]}
+    users={
+      Object {
+        "isloggedIn": true,
+        "user_data": Object {
+          "email": "email@gmail.com",
+          "token": "fqgq7f834uegwfiyugh363guyqwfh8wqwfamu8yf134789qufn1463ewqgshuohpve[q93402-9r8971823rqwbf8p9",
+          "username": "username",
+        },
+      }
+    }
+  />
+</ContextProvider>
+`;

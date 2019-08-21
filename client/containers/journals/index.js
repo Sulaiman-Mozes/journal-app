@@ -10,10 +10,10 @@ import Loader from '../../components/commons/loader';
 import NotFound from '../../components/commons/notFound';
 
 
-class Journals extends Component {
+export class Journals extends Component {
   state = { deleteId: '' }
 
-  componentWillMount() {
+  componentDidMount() {
     const { getAllNotes } = this.props;
     getAllNotes();
   }

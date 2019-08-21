@@ -69,6 +69,11 @@ exports[`Provider and App renders <Provider/> correctly 2`] = `
     <Route
       component={[Function]}
       exact={true}
+      path="/about"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
       path="/login"
     />
     <Route
@@ -80,6 +85,11 @@ exports[`Provider and App renders <Provider/> correctly 2`] = `
       component={[Function]}
       exact={true}
       path="/dashboard"
+    />
+    <ProtectedRoute
+      component={[Function]}
+      exact={true}
+      path="/update/:id"
     />
     <Route
       component={[Function]}

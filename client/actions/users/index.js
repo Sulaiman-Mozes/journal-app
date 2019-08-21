@@ -11,7 +11,7 @@ export const signupSuccessful = payload => ({ type: types.SIGNUP_SUCCESSFULL, pa
 
 export const signupUser = params => (dispatch) => {
   dispatch(signupRequest);
-  return axios.post('/users/register', params)
+  return axios.post('/api/users/register', params)
     .then((res) => {
       handleSuccess('Signup Sucessful');
       dispatch(signupSuccessful(res.data));
@@ -32,7 +32,7 @@ export const loginSuccessful = payload => ({ type: types.LOGIN_SUCCESSFULL, payl
 
 export const userLogin = params => (dispatch) => {
   dispatch(loginRequest);
-  return axios.post('/users/login', params)
+  return axios.post('/api/users/login', params)
     .then((res) => {
       handleSuccess('Login Sucessful');
       setAuthToken(res.data.data.token);

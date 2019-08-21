@@ -1,6 +1,8 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import PropTypes from 'prop-types';
+import Moment from 'moment';
 import { NavLink } from 'react-router-dom';
 
 const JournalItems = ({ notes, handleDelete }) => (
@@ -13,7 +15,22 @@ const JournalItems = ({ notes, handleDelete }) => (
             <div className="card-body">
               <h5 className="card-title">{note.title}</h5>
               <p className="card-text">{note.content}</p>
-              <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+              <p className="card-text">
+                <small className="text-muted">
+                  Last updated
+                  {' '}
+                  {Moment().diff(note.updatedAt, 'days')
+                    ? `${Moment().diff(note.updatedAt, 'days')} day(s)`
+                    : (Moment().diff(note.updatedAt, 'minutes') < 60
+                      ? `${Moment().diff(note.updatedAt, 'minutes')} minute(s)`
+                      : `${Moment().diff(note.updatedAt, 'hours')} hour(s)`
+                    )
+                  }
+                  {' '}
+                  ago
+                </small>
+
+              </p>
               <div className="d-flex justify-content-around">
 
                 <NavLink to={`/update/${note._id}`}>
@@ -27,7 +44,7 @@ const JournalItems = ({ notes, handleDelete }) => (
                   className="btn btn-danger btn-sm"
                   onClick={() => handleDelete(note._id)}
                 >
-                    Delete
+                  Delete
                 </button>
 
               </div>

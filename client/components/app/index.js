@@ -11,6 +11,7 @@ import UpdateNote from '../../containers/journals/updateNote';
 import Login from '../../containers/users/login';
 import Signup from '../../containers/users/signup';
 import NotFound from '../commons/notFound';
+import About from '../about';
 
 const App = () => (
   <Router history={history}>
@@ -23,6 +24,7 @@ const App = () => (
       />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/about" component={About} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
         <ProtectedRoute exact path="/dashboard" component={Journal} />

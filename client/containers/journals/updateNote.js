@@ -5,9 +5,9 @@ import UpdateNoteForm from '../../components/journals/form';
 import {
   getSingleNote, updateData, updateNote, setUpdateSuccessToFalse,
 } from '../../actions/journals';
+import { handleError } from '../../utils/toasts';
 
-
-class UpdateNote extends Component {
+export class UpdateNote extends Component {
   static getDerivedStateFromProps(props) {
     const {
       update: { updateSuccess }, history,
@@ -30,7 +30,7 @@ class UpdateNote extends Component {
     getSingleNoteFunc(id);
   }
 
-  handelChange = (event) => {
+  handleChange = (event) => {
     const { name, value } = event.target;
     const { data, updateDataFunc } = this.props;
     updateDataFunc({ ...data, [name]: value });
@@ -38,8 +38,12 @@ class UpdateNote extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { data, updateNoteFunc } = this.props;
-    updateNoteFunc(data);
+    const { data: { title, content, _id }, updateNoteFunc } = this.props;
+    if (!title.trim() || !content.trim()) {
+      handleError('All Feilds are required');
+    } else {
+      updateNoteFunc({ title: title.trim(), content: content.trim(), _id });
+    }
   };
 
 
@@ -50,7 +54,7 @@ class UpdateNote extends Component {
         <UpdateNoteForm
           formTitle="Update Note"
           buttonName="UPDATE"
-          handleChange={this.handelChange}
+          handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
           fields={data}
         />
@@ -63,7 +67,12 @@ UpdateNote.propTypes = {
   getSingleNoteFunc: PropTypes.func.isRequired,
   updateDataFunc: PropTypes.func.isRequired,
   updateNoteFunc: PropTypes.func.isRequired,
-  data: PropTypes.shape({}).isRequired,
+  data: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+    _id: PropTypes.string,
+
+  }).isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string.isRequired,

@@ -7,9 +7,16 @@ module.exports = {
   addUser: (req, res) => {
     const { username, email, password } = req.body;
 
+    if (!username || !email || !password) {
+      return res.status(400).json({
+        status: 'Failure',
+        message: 'All Feilds are required',
+      });
+    }
+
     const newUser = new User({ username, email, password });
 
-    User.findOne({ email }).exec((error, user) => {
+    return User.findOne({ email }).exec((error, user) => {
       if (user) {
         return res.status(400).send({
           status: 'Failure',
@@ -42,7 +49,15 @@ module.exports = {
 
   login: (req, res) => {
     const { email, password } = req.body;
-    User.findOne({ email }).exec((error, user) => {
+
+    if (!email || !password) {
+      return res.status(400).json({
+        status: 'Failure',
+        message: 'All Feilds are required',
+      });
+    }
+
+    return User.findOne({ email }).exec((error, user) => {
       if (error || !user) {
         return res.status(401).send({
           message: 'Authentication Failed, Username or Password Incorrect',

@@ -2,9 +2,7 @@
 
 ## Product Description
 
-## Run Application
-
-#### Set up 
+## Set up 
 
 - Ensure that node and yarn are installed
 
@@ -19,28 +17,46 @@
 
 - Create Application environment variables and save them in .env-sample file
     ```
+    MONGODB_URI = " "
+    PORT=7777
+    SECRET="hello"
+    BASE_URL= "http://localhost:7777/"
     ```
 
 - Run application.
     - Development Server
         ```
         yarn start:dev
+
+        yarn start:dev
         ```
     - Build
         ```
         yarn build
         ```
+    - Run Production
+        ```
+        - Make sure you build first
+        
+        yarn  start
+        ```
     - Run Linter
         ```
         yarn lint
+        ```
+    - Fix Linter Errors
+        ```
+        yarn lint --fix
         ```
 
 - Running Tests
      - To run tests, run the command below.
         ```
+        yarn test
         ```
     - To run  and check for test coverage. Run the command below:
         ```
+        yarn test:cov
         ```
  
 

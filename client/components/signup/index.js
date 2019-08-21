@@ -58,16 +58,6 @@ const SignUp = ({
 
       <button className="btn btn-info my-4 btn-block" type="submit">Sign up</button>
 
-      <p>or sign up with:</p>
-      <NavLink className="light-blue-text mx-2" to="/signup">
-        <i className="fab fa-facebook-f" />
-      </NavLink>
-      <NavLink className="light-blue-text mx-2" to="/signup">
-        <i className="fab fa-twitter" />
-      </NavLink>
-      <NavLink className="light-blue-text mx-2" to="/signup">
-        <i className="fab fa-google" />
-      </NavLink>
       <hr />
 
       <p>

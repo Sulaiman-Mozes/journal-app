@@ -16,18 +16,18 @@ exports[`Footer Component renders <Footer/> correctly 1`] = `
         <h5
           className="mb-1"
         >
-          Register for free
+          Welcome to
         </h5>
       </li>
       <li
         className="list-inline-item"
       >
-        <a
+        <button
           className="btn btn-outline-white btn-rounded"
-          href="#!"
+          type="button"
         >
-          Sign up!
-        </a>
+          My Journal
+        </button>
       </li>
     </ul>
   </div>
