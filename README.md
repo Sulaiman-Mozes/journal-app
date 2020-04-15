@@ -1,5 +1,8 @@
 # My Journal App
 
+## Live Application
+ - https://journal--app.herokuapp.com/
+
 ## Product Description
 
 ## Set up 
